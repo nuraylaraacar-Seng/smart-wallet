@@ -1,0 +1,26 @@
+# Maven / Derleme Çıktıları
+target/
+*.class
+*.jar
+*.war
+
+# IDE / Editör Dosyaları
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Loglar
+*.log
+logs/
+
+# Çevresel Değişkenler ve Gizli Dosyalar
+.env
+.env.*
+
+# Güvenlik ve Şifreleme Anahtarları (Smart Wallet PII)
+src/main/resources/keys/*.pem
+*.pem
+*.key
