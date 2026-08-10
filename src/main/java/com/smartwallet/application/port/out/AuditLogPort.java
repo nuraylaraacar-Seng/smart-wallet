@@ -1,5 +1,5 @@
 package com.smartwallet.application.port.out;
-import com.smartwallet.application.port.out.AuditLogPort;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 
