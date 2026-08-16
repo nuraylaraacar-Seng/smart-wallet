@@ -1,3 +1,4 @@
+<img width="1024" height="806" alt="1201ff2f-0a65-4919-8a8b-e46142397265" src="https://github.com/user-attachments/assets/92d55c48-d76a-4dc1-a271-486ed358669f" />
 # smart-wallet
 
 Architecture 
