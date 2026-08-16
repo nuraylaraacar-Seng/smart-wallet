@@ -1,2 +1,2 @@
 # smart-wallet
-#Architecture 
+Architecture 
