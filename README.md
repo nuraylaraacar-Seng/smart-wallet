@@ -1,6 +1,6 @@
 # smart-wallet
 
-##Architecture 
+""Architecture ""
 
 <img width="1024" height="806" alt="1201ff2f-0a65-4919-8a8b-e46142397265" src="https://github.com/user-attachments/assets/98599b9e-3c3a-4753-8f97-a890e2abf7b9" />
 
