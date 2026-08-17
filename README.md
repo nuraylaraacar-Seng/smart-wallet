@@ -8,10 +8,7 @@
 
 <img width="1024" height="1024" alt="3a85f953-5866-4496-8ab6-503cfafff9bd" src="https://github.com/user-attachments/assets/93526d70-3d6f-41c7-aa5c-eaebb33159e6" />
 
-<img width="1089" height="784" alt="Ekran görüntüsü 2026-08-17 015904" src="https://github.com/user-attachments/assets/66f410d7-f294-4936-a55a-ccee9db8bbe7" />
 
-
-![Uploading smart_wallet_full_stack_diagram.png…]()
 
 
 
