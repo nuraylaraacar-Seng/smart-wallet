@@ -12,4 +12,6 @@
 
 <img width="806" height="684" alt="Ekran görüntüsü 2026-05-21 161531" src="https://github.com/user-attachments/assets/a7635d4d-f54f-49a8-8bca-0de32f3dc07b" />
 
-<img width="760" height="815" alt="PROJE" src="https://github.com/user-attachments/assets/a2992384-53ce-455c-89ab-34b104ba6003" />
+
+
+
