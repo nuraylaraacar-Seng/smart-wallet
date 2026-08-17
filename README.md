@@ -11,6 +11,7 @@
 <img width="1089" height="784" alt="Ekran görüntüsü 2026-08-17 015904" src="https://github.com/user-attachments/assets/66f410d7-f294-4936-a55a-ccee9db8bbe7" />
 
 
+![Uploading smart_wallet_full_stack_diagram.png…]()
 
 
 
