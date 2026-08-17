@@ -1,3 +1,4 @@
+<img width="2720" height="3600" alt="smart_wallet_full_stack_diagram" src="https://github.com/user-attachments/assets/6a566323-d70a-4e93-8537-4522eec9190b" />
 # smart-wallet
 
 ## System Architecture 
