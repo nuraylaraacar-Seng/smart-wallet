@@ -10,7 +10,6 @@
 
 <img width="1089" height="784" alt="Ekran görüntüsü 2026-08-17 015904" src="https://github.com/user-attachments/assets/66f410d7-f294-4936-a55a-ccee9db8bbe7" />
 
-<img width="806" height="684" alt="Ekran görüntüsü 2026-05-21 161531" src="https://github.com/user-attachments/assets/a7635d4d-f54f-49a8-8bca-0de32f3dc07b" />
 
 
 
