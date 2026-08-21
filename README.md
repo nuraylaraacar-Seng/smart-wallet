@@ -1,3 +1,4 @@
+```markdown
 # Smart Wallet Backend 💳
 
 <img width="2720" height="3600" alt="smart_wallet_full_stack_diagram" src="https://github.com/user-attachments/assets/6a566323-d70a-4e93-8537-4522eec9190b" />
@@ -15,39 +16,6 @@ While most wallet examples are simple CRUD applications, real-world financial sy
 <img width="1024" height="1024" alt="3a85f953-5866-4496-8ab6-503cfafff9bd" src="https://github.com/user-attachments/assets/93526d70-3d6f-41c7-aa5c-eaebb33159e6" />
 
 <img width="2720" height="1960" alt="smart_wallet_hexagonal_architecture_final" src="https://github.com/user-attachments/assets/e58c8380-ff8f-4122-ba2d-6be866b279f0" />
-
-## 1. Core Scenarios
-
-### Concurrent Mutual Transfers
-**Scenario:** User A transfers money to User B, while User B simultaneously transfers money to User A.
-**Flow & Resolution:**
-* Both requests hit the `TransferMoneyUseCase`.
-* To prevent database deadlocks, the system consistently orders row-level pessimistic locks based on the UUID of the wallets using the internal `WalletLockOrder` utility.
-* Balances are mutated, and an atomic transaction is committed.
-* An immutable audit log is generated for both debit and credit actions.
-
-### Idempotent Deposits & Withdrawals
-**Scenario:** A client network times out, and the user accidentally submits the same deposit request twice.
-**Flow & Resolution:**
-* Every state-mutating API call requires an `Idempotency-Key` header.
-* The system checks the `idempotency_keys` table. 
-* If the key exists, it skips the business logic and immediately returns the previously computed `Transaction` entity. Parity and consistency are maintained.
-
-## 2. Concurrency & Resilience Patterns
-
-This project does not rely on simple framework annotations; it tackles race conditions head-on.
-
-### Deadlock-Free Pessimistic Locking
-When two wallets interact, locking them in a random order can cause fatal deadlocks. The `WalletLockOrder` guarantees that the wallet with the smaller UUID is always locked first, ensuring a universal locking sequence across all concurrent threads.
-
-```java
-// WalletLockOrder.java
-static OrderedPair order(UUID firstWalletId, UUID secondWalletId) {
-    if (firstWalletId.compareTo(secondWalletId) <= 0) {
-        return new OrderedPair(firstWalletId, secondWalletId);
-    }
-    return new OrderedPair(secondWalletId, firstWalletId);
-}
 
 ## 1. Core Scenarios
 
@@ -167,4 +135,3 @@ docker-compose up -d
 ```
 
 *The API will be available at `http://localhost:8080/api/v1/`.*
-
