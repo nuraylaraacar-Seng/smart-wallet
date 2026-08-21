@@ -12,6 +12,16 @@ target/
 .project
 .settings/
 
+# Frontend (React / Vite)
+smart-wallet-ui/node_modules/
+smart-wallet-ui/dist/
+
+# İşletim Sistemi ve Editör Artıkları
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
 # Loglar
 *.log
 logs/

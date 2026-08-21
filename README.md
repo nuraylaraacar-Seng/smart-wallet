@@ -114,6 +114,7 @@ To run this project locally, you need **Docker** and **Docker Compose** installe
 **1. Clone the repository:**
 
 ```bash
+
 git clone [https://github.com/nuraylaraacar-Seng/smart-wallet.git](https://github.com/nuraylaraacar-Seng/smart-wallet.git)
 cd smart-wallet
 
