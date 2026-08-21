@@ -25,3 +25,8 @@ To handle network timeouts and prevent double-spending, every state-mutating API
 Preventing Dual-Write Issues
 When a transfer is successful, an event is published to the message broker. To avoid the dual-write problem (e.g., publishing the message but the DB transaction rolling back), events are strictly bound to the AFTER_COMMIT phase.
 
+// TransactionEventListener.java
+@TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
+public void handleTransactionCompleted(TransactionCompletedEvent event) {
+    rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE, RabbitMQConfig.ROUTING_KEY, event);
+}
