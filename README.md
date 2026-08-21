@@ -1,14 +1,9 @@
----
-
 ```markdown
 # Smart Wallet Backend 💳
 
 A modular, concurrency-safe digital wallet API built with **Hexagonal Architecture (Ports & Adapters)** and **Domain-Driven Design (DDD)**. 
 
 While most wallet examples are simple CRUD applications, real-world financial systems require strict data consistency. This project is explicitly engineered to solve complex distributed system problems: preventing double-spending via idempotency, eliminating database deadlocks during concurrent transfers, and securing sensitive user data with envelope encryption.
-
-> **[📝 NOT: Draw.io ile hazırladığın Hexagonal Architecture veya Genel Sistem şemasını tam bu alana görsel olarak eklemelisin.]**
-> `<img width="800" alt="system-architecture" src="https://github.com/user-attachments/assets/senin-gorsel-linkin" />`
 
 ---
 
@@ -81,7 +76,7 @@ To run this project locally, you need **Docker** and **Docker Compose** installe
 **1. Clone the repository:**
 
 ```bash
-git clone [https://github.com/nuraylaraacar-Seng/smart-wallet.git](https://github.com/nuraylaraacar-Seng/smart-wallet.git)
+git clone https://github.com/nuraylaraacar-Seng/smart-wallet.git
 cd smart-wallet
 
 ```
@@ -98,9 +93,10 @@ docker-compose up -d
 ```bash
 ./mvnw spring-boot:run
 
-
-```
 ```
 
 *The API will be available at `http://localhost:8080/api/v1/`.*
 
+```
+
+```
