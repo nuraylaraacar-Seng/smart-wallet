@@ -9,7 +9,7 @@ A digital wallet API focused on data consistency and concurrency control. It's b
 ### Deadlock-Safe Mutual Transfers
 During concurrent transfers between two wallets (e.g., A -> B and B -> A simultaneously), acquiring database locks in a random order causes deadlocks. The system enforces a strict locking order using `WalletLockOrder` by comparing wallet UUIDs before executing row-level pessimistic locks.
 
-```java
+
 // WalletLockOrder.java
 static OrderedPair order(UUID firstWalletId, UUID secondWalletId) {
     if (firstWalletId.compareTo(secondWalletId) <= 0) {
@@ -17,7 +17,7 @@ static OrderedPair order(UUID firstWalletId, UUID secondWalletId) {
     }
     return new OrderedPair(secondWalletId, firstWalletId);
 }
-'''
+
 Idempotent Operations
 To handle network timeouts and prevent double-spending, every state-mutating API call requires an Idempotency-Key header. The system checks the idempotency_keys table before processing. If a duplicate request is detected, it returns the previously computed Transaction entity without re-executing the logic.
 
