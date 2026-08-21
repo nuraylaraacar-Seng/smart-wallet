@@ -116,6 +116,6 @@ docker-compose up -d
 ```bash
 ./mvnw spring-boot:run
 
-```
+
 *The API will be available at `http://localhost:8080/api/v1/`.*
 ```
