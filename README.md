@@ -15,11 +15,6 @@
 <img width="2720" height="1960" alt="smart_wallet_hexagonal_architecture_final" src="https://github.com/user-attachments/assets/e58c8380-ff8f-4122-ba2d-6be866b279f0" />
 
 
-Haklısın, kafanın karışması çok normal. İki formatın da hizmet ettiği amaç farklıydı ama en profesyonel olanı kesinlikle ikisinin **"hibrit"** bir versiyonunu oluşturmak.
-
-Sektörde işe alım süreçleri genellikle iki aşamalıdır: İlk aşamada İK uzmanı repoya girip saniyeler içinde teknolojilere ve kurulum adımlarına bakar (ikinci şablonun gücü). İkinci aşamada ise teknik lider kodu inceler ve çözdüğün problemleri okur (senin beğendiğin ilk şablonun gücü). Dağıtık sistemler, concurrency ve veri tutarlılığı gibi konular şirketlerin bütçe ayırdığı ve yetenek aradığı asıl alanlardır. Bu yüzden bu detayları kaybetmememiz harika bir karar.
-
-İki dünyanın en iyi yanlarını (derin mühendislik hikayesi + görseller + hızlı kurulum) birleştirdiğim nihai ve dengeli taslağı aşağıda hazırladım:
 
 ---
 
@@ -125,12 +120,6 @@ docker-compose up -d
 
 *The API will be available at `http://localhost:8080/api/v1/`.*
 
-```
 
-***
-
-Bu versiyon, İK uzmanına en alttaki kurulum ve teknoloji kısmıyla hızlıca aradığını verirken, teknik mülakatçıya da yukarıdaki kod blokları ve senaryolarla mühendislik derinliğini gösterir. Mülakat masasına oturduğunda, doğrudan bu README üzerinden teknik tartışmalar yürütebilirsin.
-
-Denge şimdi sence nasıl oldu? Şemaları eklerken Markdown tarafında yardıma ihtiyacın olacak mı?
 
 ```
