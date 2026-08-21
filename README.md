@@ -7,6 +7,8 @@
 <img width="1024" height="806" alt="1201ff2f-0a65-4919-8a8b-e46142397265" src="https://github.com/user-attachments/assets/98599b9e-3c3a-4753-8f97-a890e2abf7b9" />
 
 
+<img width="3807" height="656" alt="Arc-3-Uml drawio" src="https://github.com/user-attachments/assets/f2caa5ce-fb70-479d-ab45-a92f462439a9" />
+
 <img width="1024" height="1024" alt="3a85f953-5866-4496-8ab6-503cfafff9bd" src="https://github.com/user-attachments/assets/93526d70-3d6f-41c7-aa5c-eaebb33159e6" />
 
 
