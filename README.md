@@ -97,6 +97,6 @@ Backend çalışıyor, testler geçiyor, Docker image hazır.
 Sırada: Oracle Cloud'a deploy, CI/CD pipeline'ı, 
 ve ileride bir harcama analizi katmanı eklenecek.
 
-<img width="796" height="570" alt="Ekran görüntüsü 2026-08-21 170005" src="https://github.com/user-attachments/assets/38e3cbf2-3145-4bcd-be3d-d3bed167342b" />
+
 
 
