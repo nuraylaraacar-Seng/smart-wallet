@@ -17,7 +17,7 @@ static OrderedPair order(UUID firstWalletId, UUID secondWalletId) {
     }
     return new OrderedPair(secondWalletId, firstWalletId);
 }
-
+'''
 Idempotent Operations
 To handle network timeouts and prevent double-spending, every state-mutating API call requires an Idempotency-Key header. The system checks the idempotency_keys table before processing. If a duplicate request is detected, it returns the previously computed Transaction entity without re-executing the logic.
 
