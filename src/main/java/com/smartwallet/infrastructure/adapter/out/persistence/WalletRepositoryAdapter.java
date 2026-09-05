@@ -2,7 +2,9 @@ package com.smartwallet.infrastructure.adapter.out.persistence;
 
 import com.smartwallet.application.port.out.WalletRepositoryPort;
 import com.smartwallet.domain.model.Wallet;
+import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.Optional;
@@ -13,10 +15,34 @@ public class WalletRepositoryAdapter implements WalletRepositoryPort {
 
     private final SpringDataWalletRepository springDataWalletRepository;
     private final WalletMapper walletMapper;
+    private final EntityManager entityManager;
 
-    public WalletRepositoryAdapter(SpringDataWalletRepository springDataWalletRepository, WalletMapper walletMapper) {
+    public WalletRepositoryAdapter(
+            SpringDataWalletRepository springDataWalletRepository,
+            WalletMapper walletMapper,
+            EntityManager entityManager) {
         this.springDataWalletRepository = springDataWalletRepository;
         this.walletMapper = walletMapper;
+        this.entityManager = entityManager;
+    }
+
+    @Override
+    @Transactional
+    public Wallet save(Wallet wallet) {
+        WalletEntity existingEntity = entityManager.find(WalletEntity.class, wallet.getId());
+
+        if (existingEntity == null) {
+            // DÜZELTME: Yeni cüzdanda creation ve version null olmalı ki Hibernate yeni kayıt (INSERT) olduğunu bilsin!
+            WalletEntity entity = walletMapper.toEntity(wallet, null);
+            entityManager.persist(entity);
+            return walletMapper.toDomain(entity);
+        } else {
+            existingEntity.setBalanceAmount(wallet.getBalance().getAmount());
+            existingEntity.setBalanceCurrency(wallet.getBalance().getCurrency().getCurrencyCode());
+            existingEntity.setStatus(wallet.getStatus().name());
+            existingEntity.setUpdatedAt(Instant.now());
+            return walletMapper.toDomain(existingEntity);
+        }
     }
 
     @Override
@@ -30,14 +56,7 @@ public class WalletRepositoryAdapter implements WalletRepositoryPort {
     }
 
     @Override
-    public Wallet save(Wallet wallet) {
-
-        Instant existingCreatedAt = springDataWalletRepository.findById(wallet.getId())
-                .map(WalletEntity::getCreatedAt)
-                .orElse(null);
-
-        WalletEntity entity = walletMapper.toEntity(wallet, existingCreatedAt);
-        WalletEntity saved = springDataWalletRepository.save(entity);
-        return walletMapper.toDomain(saved);
+    public Optional<Wallet> findByUserId(UUID userId) {
+        return springDataWalletRepository.findByUserId(userId).map(walletMapper::toDomain);
     }
 }

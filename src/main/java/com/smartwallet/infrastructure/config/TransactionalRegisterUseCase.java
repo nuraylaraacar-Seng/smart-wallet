@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 
-
+@Primary
 @Component
 public class TransactionalRegisterUseCase implements RegisterUseCase {
 

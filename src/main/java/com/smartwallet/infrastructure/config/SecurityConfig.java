@@ -16,7 +16,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
-
+/**
+ * PROD'A ÇIKARKEN: localhost:5173'ü gerçek frontend domain'ini ile değiştirecem.
+ **/
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -46,12 +48,11 @@ public class SecurityConfig {
 
     private CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // GELİŞTİRME AŞAMASI:  şu anlık tüm origin'lere izin veriyor. Frontend kısmı
-        // domainin netleştiğinde List.of("*") yerine
-        // List.of("blablabla.com") yazacağım
-        configuration.setAllowedOrigins(List.of("*"));
+        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
+        // Cookie'nin tarayıcı tarafından gönderilip kabul edilmesi için ZORUNLU.
+        configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);

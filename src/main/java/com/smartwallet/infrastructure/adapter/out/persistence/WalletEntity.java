@@ -1,10 +1,7 @@
 package com.smartwallet.infrastructure.adapter.out.persistence;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
+import org.springframework.data.domain.Persistable;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -12,7 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "wallets")
-public class WalletEntity {
+public class WalletEntity implements Persistable<UUID> {
 
     @Id
     private UUID id;
@@ -39,6 +36,25 @@ public class WalletEntity {
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
+    @Transient
+    private boolean isNew = true;
+
+    @Override
+    public UUID getId() {
+        return id;
+    }
+
+    @Override
+    public boolean isNew() {
+        return isNew;
+    }
+
+    @PostLoad
+    @PostPersist
+    void markNotNew() {
+        this.isNew = false;
+    }
+
     public WalletEntity() {
     }
 
@@ -51,10 +67,6 @@ public class WalletEntity {
         this.version = version;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public void setId(UUID id) {

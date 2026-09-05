@@ -19,11 +19,10 @@ public class WalletMapper {
                         e.getUserId(),
                         Money.of(e.getBalanceAmount(), e.getBalanceCurrency()),
                         WalletStatus.valueOf(e.getStatus()),
-                        e.getVersion()
+                        e.getVersion() != null ? e.getVersion() : 0L
                 ))
                 .orElse(null);
     }
-
 
     public WalletEntity toEntity(Wallet wallet, Instant existingCreatedAt) {
         return Optional.ofNullable(wallet)
@@ -33,9 +32,10 @@ public class WalletMapper {
                         w.getBalance().getAmount(),
                         w.getBalance().getCurrency().getCurrencyCode(),
                         w.getStatus().name(),
-                        w.getVersion(),
-                        existingCreatedAt != null ? existingCreatedAt : Instant.now(), // Kayıtlı tarih varsa onu kullan, yoksa şu anı al
-                        Instant.now() // Güncellenme tarihi her zaman şu an olur
+                        // DÜZELTME: existingCreatedAt null ise bu yeni cüzdandır, version null olmalı!
+                        existingCreatedAt != null ? w.getVersion() : null,
+                        existingCreatedAt != null ? existingCreatedAt : Instant.now(),
+                        Instant.now()
                 ))
                 .orElse(null);
     }

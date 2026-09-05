@@ -1,0 +1,18 @@
+export const theme = {
+    emerald: '#0F5C4A',
+    emeraldDark: '#0C4A3B',
+    emeraldSoft: '#E3EFE9',
+    anthracite: '#1F2229',
+    anthraciteLight: '#2B2F38',
+    surface: '#FFFFFF',
+    page: '#F5F6F4',
+    border: '#E4E6E1',
+    borderStrong: '#D2D5CD',
+    textPrimary: '#1C1E1A',
+    textMuted: '#6E7266',
+    success: '#0F5C4A',
+    successSoft: '#E3EFE9',
+    danger: '#A3372B',
+    dangerSoft: '#F7E9E6',
+    radius: 14,
+};

@@ -18,8 +18,6 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.UUID;
 
-
-
 @Component
 public class JwtTokenProvider {
 
@@ -47,6 +45,7 @@ public class JwtTokenProvider {
         return Jwts.builder()
                 .subject(userId.toString())
                 .claim("email", email)
+                .claim("type", "ACCESS")
                 .issuedAt(now)
                 .expiration(expiryDate)
                 .signWith(privateKey, Jwts.SIG.RS256)
@@ -68,6 +67,14 @@ public class JwtTokenProvider {
 
     public Optional<UUID> getUserIdFromToken(String token) {
         return parseClaims(token)
+                .map(Claims::getSubject)
+                .map(UUID::fromString);
+    }
+
+
+    public Optional<UUID> getUserIdFromRefreshToken(String token) {
+        return parseClaims(token)
+                .filter(claims -> "REFRESH".equals(claims.get("type")))
                 .map(Claims::getSubject)
                 .map(UUID::fromString);
     }
