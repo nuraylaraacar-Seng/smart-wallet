@@ -14,13 +14,14 @@ smart-wallet-ui/
 │   ├── favicon.svg
 │   └── icons.svg
 ├── screenshots/             # Ekran görüntüleri
-│   ├── dashboard-overview.png
-│   ├── transfer-panel.png
-│   ├── transfer-success.png
 │   ├── deposit-success.png
 │   ├── transaction-history.png
+│   ├── transfer-by-ID.png
 │   ├── transfer-by-email.png
-│   └── wallet-balance.png
+│   ├── transfer-success-1.png
+│   ├── transfer-success-2.png
+│   └──transfer-panel.png
+|   |_wallet-balance.png
 ├── src/                     # Kaynak kodlar
 │   ├── assets/              # Görsel varlıkları
 │   ├── components/          # UI bileşenleri
