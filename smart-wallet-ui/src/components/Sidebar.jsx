@@ -1,4 +1,5 @@
 import { theme } from '../theme';
+import Logo from './Logo';
 
 const NAV_ITEMS = [
     { key: 'overview', label: 'Overview', icon: '◆' },
@@ -19,10 +20,9 @@ export default function Sidebar({ active, onNavigate }) {
             minHeight: '100vh',
             boxSizing: 'border-box',
         }}>
+
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 36 }}>
-                <div style={{ width: 32, height: 32, borderRadius: 8, background: theme.emerald, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 13 }}>
-                    SW
-                </div>
+                <Logo size={32} />
                 <span style={{ fontSize: 14, fontWeight: 500, letterSpacing: 0.2 }}>Smart Wallet</span>
             </div>
 

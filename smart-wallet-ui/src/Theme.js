@@ -15,4 +15,6 @@ export const theme = {
     danger: '#A3372B',
     dangerSoft: '#F7E9E6',
     radius: 14,
+    logoBg: '#171717',
+    logoAccent: '#3DDC97',
 };

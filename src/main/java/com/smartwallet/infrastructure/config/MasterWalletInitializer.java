@@ -19,7 +19,7 @@ public class MasterWalletInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) {
         UUID masterWalletId = UUID.fromString("00000000-0000-0000-0000-000000000001");
-        UUID systemUserId   = UUID.fromString("00000000-0000-0000-0000-000000000000");
+        UUID systemUserId = UUID.fromString("00000000-0000-0000-0000-000000000000");
 
         // 1. Önce users tablosunda sistem kullanıcısı var mı kontrol et, yoksa ekle (NOT NULL kısıtını aşmak için)
         String checkUserSql = "SELECT COUNT(*) FROM users WHERE id = ?";
@@ -27,13 +27,7 @@ public class MasterWalletInitializer implements CommandLineRunner {
 
         if (userCount != null && userCount == 0) {
             String insertUserSql = "INSERT INTO users (id, email, password_hash, status) VALUES (?, ?, ?, ?)";
-            jdbcTemplate.update(
-                    insertUserSql,
-                    systemUserId,
-                    "system-master@smartwallet.internal",
-                    "SYSTEM_NO_LOGIN",
-                    "ACTIVE"
-            );
+            jdbcTemplate.update(insertUserSql, systemUserId, "system-master@smartwallet.internal", "SYSTEM_NO_LOGIN", "ACTIVE");
         }
 
         // 2. Master cüzdan var mı kontrol et, yoksa ekle
@@ -42,19 +36,11 @@ public class MasterWalletInitializer implements CommandLineRunner {
 
         if (walletCount != null && walletCount == 0) {
             String insertWalletSql = """
-                INSERT INTO wallets (id, user_id, balance_amount, balance_currency, status, version) 
-                VALUES (?, ?, ?, ?, ?, ?)
-            """;
+                        INSERT INTO wallets (id, user_id, balance_amount, balance_currency, status, version) 
+                        VALUES (?, ?, ?, ?, ?, ?)
+                    """;
 
-            jdbcTemplate.update(
-                    insertWalletSql,
-                    masterWalletId,
-                    systemUserId,
-                    new BigDecimal("10000000.0000"),
-                    "TRY",
-                    "ACTIVE",
-                    0L
-            );
+            jdbcTemplate.update(insertWalletSql, masterWalletId, systemUserId, new BigDecimal("10000000.0000"), "TRY", "ACTIVE", 0L);
             System.out.println(">>> SİSTEM MASTER CÜZDANI BAŞARIYLA OLUŞTURULDU (10M TRY) <<<");
         }
     }
