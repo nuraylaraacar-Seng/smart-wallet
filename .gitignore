@@ -13,8 +13,8 @@ target/
 .settings/
 
 # Frontend (React / Vite)
-smart-wallet-ui/node_modules/
-smart-wallet-ui/dist/
+smart-wallet-ui-v2/node_modules/
+smart-wallet-ui-v2/dist/
 
 # İşletim Sistemi ve Editör Artıkları
 .DS_Store
