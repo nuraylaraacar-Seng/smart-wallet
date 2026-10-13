@@ -35,7 +35,7 @@ export default function LoginForm({ onLoginSuccess, onSwitchToRegister }) {
     };
 
     return (
-        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: theme.bg, padding: '1rem' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', padding: '1rem' }}>
             <div style={{ width: '100%', maxWidth: 380 }}>
                 <div style={{ marginBottom: 32, textAlign: 'center' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
