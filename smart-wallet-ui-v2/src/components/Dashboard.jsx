@@ -85,7 +85,7 @@ export default function Dashboard({ onLogout }) {
     };
 
     return (
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: theme.bg }}>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'transparent' }}>
             <Topbar title={TAB_TITLES[activeTab]} />
 
             <div

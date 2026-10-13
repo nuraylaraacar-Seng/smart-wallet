@@ -15,6 +15,16 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+            radial-gradient(ellipse 65% 45% at 18% 0%, rgba(61, 220, 151, 0.14) 0%, transparent 100%),
+            radial-gradient(ellipse 55% 40% at 92% 100%, rgba(61, 220, 151, 0.09) 0%, transparent 100%);
+}
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
